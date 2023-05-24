@@ -3,13 +3,11 @@
         <section class="intro">
             <div class="intro__container">
                 <div class="intro-info">
-                    <div class="intro__title">МАГАЗИН ПУТЕШЕСТВИЙ</div>
                     <div class="intro__text">
                         И в любой день недели вы можете присоединиться к нашему однодневному или многодневному туру, не
                         важно, путешествуете вы большой компанией или в одиночку
                     </div>
                 </div>
-                <img class="intro-image" src="@/assets/img/forest.svg" />
             </div>
         </section>
         <section class="search">
@@ -26,44 +24,44 @@ export default {
     data() {
         return {
             users: '',
-        }
+        };
     },
     async mounted() {
-        this.users = await $fetch('https://jsonplaceholder.typicode.com/users')
+        this.users = await $fetch('https://jsonplaceholder.typicode.com/users');
     },
-}
+};
 </script>
 <style lang="scss" scoped>
+@import '@/assets/styles/variables.scss';
+
 .intro {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 50px 0;
+    padding: 10px 0;
     .intro__container {
         width: 100%;
-        max-width: 1060px;
-        padding: 20px 60px;
+        max-width: 1260px;
+        height: 80vh;
+        padding: 80px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        background: linear-gradient(102.54deg, #329f5b 0%, #329f5b 7.29%, #8fd5a6 100%);
-        border-radius: 24px;
+        justify-content: center;
+        background: url('@/assets/img/forest.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 60px;
         box-sizing: border-box;
         .intro-info {
-            .intro__title {
-                max-width: 400px;
-                margin-bottom: 20px;
-                font-weight: 900;
-                font-size: 48px;
-                line-height: 95.2%;
-                color: #0446ef;
-            }
             .intro__text {
-                max-width: 400px;
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 20px;
-                color: #0446ef;
+                margin-top: 30px;
+                max-width: 820px;
+                font-weight: 300;
+                font-size: 34px;
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;
+                line-height: 53px;
+                color: #ffffff;
             }
         }
         .intro-image {

@@ -4,10 +4,26 @@
             <div class="header__container">
                 <p class="header__logo">MAGPUT</p>
                 <div class="header-links">
-                    <nuxt-link class="header__link" to="">Туры</nuxt-link>
-                    <nuxt-link class="header__link" to="">Новости</nuxt-link>
-                    <nuxt-link class="header__link" to="">О нас</nuxt-link>
-                    <nuxt-link class="header__link" to="">Контакты</nuxt-link>
+                    <nuxt-link class="header__link" to="">
+                        <img src="@/assets/img/world-tour-icon.svg" class="header__link-image" />
+                        <div class="header__link-text">Туры</div>
+                    </nuxt-link>
+                    <nuxt-link class="header__link" to="">
+                        <img src="@/assets/img/love.svg" class="header__link-image" />
+                        <div class="header__link-text">Избранное</div>
+                    </nuxt-link>
+                    <nuxt-link class="header__link" to="">
+                        <img src="@/assets/img/help.svg" class="header__link-image" />
+                        <div class="header__link-text">Поддержка</div>
+                    </nuxt-link>
+                    <nuxt-link class="header__link" to="">
+                        <img src="@/assets/img/pocket.svg" class="header__link-image" />
+                        <div class="header__link-text">Мои поездки</div>
+                    </nuxt-link>
+                </div>
+                <div class="header-profile">
+                    <img src="@/assets/img/wrld.svg" class="world" />
+                    <div class="woman"></div>
                 </div>
             </div>
         </div>
@@ -28,23 +44,52 @@
     justify-content: center;
     .header__container {
         width: 100%;
-        max-width: 1060px;
+        max-width: 1260px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         .header__logo {
-            font-size: 32px;
-            font-weight: 900;
+            font-size: 28px;
+            font-weight: 500;
             color: $main-green;
+            font-family: 'Kodchasan', sans-serif;
         }
         .header-links {
             display: flex;
             align-items: center;
-            gap: 70px;
+            gap: 50px;
             .header__link {
-                font-size: 16px;
-                font-weight: 500;
-                color: $main-text;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 7px 15px 7px 10px;
+                border: 1px solid #ebeaea;
+                border-radius: 16px;
+                &-text {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $main-text;
+                    margin-bottom: 1px;
+                }
+                &-image {
+                    width: 20px;
+                }
+            }
+        }
+        .header-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .world {
+                width: 27px;
+                height: 27px;
+            }
+            .woman {
+                width: 30px;
+                height: 30px;
+                background: #ebeaea;
+                object-fit: cover;
+                border-radius: 360px;
             }
         }
     }
