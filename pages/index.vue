@@ -14,13 +14,24 @@
         </section>
         <section class="search">
             <div class="search__container">
-                
+                <div v-for="(item, index) in users" :key="index" class="search-item">
+                    {{ item.name }}
+                </div>
             </div>
         </section>
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            users: '',
+        }
+    },
+    async mounted() {
+        this.users = await $fetch('https://jsonplaceholder.typicode.com/users')
+    },
+}
 </script>
 <style lang="scss" scoped>
 .intro {
@@ -45,14 +56,14 @@ export default {};
                 font-weight: 900;
                 font-size: 48px;
                 line-height: 95.2%;
-                color: #ffffff;
+                color: #0446ef;
             }
             .intro__text {
                 max-width: 400px;
                 font-weight: 500;
                 font-size: 18px;
                 line-height: 20px;
-                color: #ffffffe8;
+                color: #0446ef;
             }
         }
         .intro-image {
