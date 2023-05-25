@@ -13,6 +13,8 @@
     "nuxt": "^3.5.1"
   },
   "dependencies": {
-    "sass": "^1.62.1"
+    "@popperjs/core": "^2.11.7",
+    "sass": "^1.62.1",
+    "v-calendar": "^3.0.3"
   }
 }
