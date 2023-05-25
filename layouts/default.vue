@@ -51,7 +51,7 @@
         .header__logo {
             font-size: 28px;
             font-weight: 500;
-            color: $main-green;
+            color: $main-blue;
             font-family: 'Kodchasan', sans-serif;
         }
         .header-links {
