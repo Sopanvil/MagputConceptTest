@@ -4,8 +4,7 @@
             <div class="intro__container">
                 <div class="intro-info">
                     <div class="intro__text">
-                        И в любой день недели вы можете присоединиться к нашему однодневному или многодневному туру, не
-                        важно, путешествуете вы большой компанией или в одиночку
+                        6 миллионов путешественников ежегодно бронируют у нас отели, туры и экскурсии
                     </div>
                 </div>
                 <div class="search">
@@ -14,22 +13,13 @@
                         <div class="search-header">
                             <div class="search-type">
                                 <div class="search-type-item active">
-                                    <svg
-                                        width="20px"
-                                        height="20px"
-                                        viewBox="0 0 24 24"
-                                        version="1.1"
-                                        xml:space="preserve"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    >
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Layer_Grid" />
 
                                         <g id="Layer_2">
-                                            <path
-                                                fill="#0446ef"
-                                                d="M21,8c0-2.2-1.8-4-4-4H7C4.8,4,3,5.8,3,8v3.8c-0.6,0.5-1,1.3-1,2.2v2.7V17v2c0,0.6,0.4,1,1,1s1-0.4,1-1v-1h16v1   c0,0.6,0.4,1,1,1s1-0.4,1-1v-2v-0.3V14c0-0.9-0.4-1.7-1-2.2V8z M5,8c0-1.1,0.9-2,2-2h10c1.1,0,2,0.9,2,2v3h-1v-1c0-1.7-1.3-3-3-3   h-1c-0.8,0-1.5,0.3-2,0.8C11.5,7.3,10.8,7,10,7H9c-1.7,0-3,1.3-3,3v1H5V8z M16,10v1h-3v-1c0-0.6,0.4-1,1-1h1C15.6,9,16,9.4,16,10z    M11,10v1H8v-1c0-0.6,0.4-1,1-1h1C10.6,9,11,9.4,11,10z M20,16H4v-2c0-0.6,0.4-1,1-1h3h3h2h3h3c0.6,0,1,0.4,1,1V16z"
-                                            />
+                                            <path fill="#0446ef"
+                                                d="M21,8c0-2.2-1.8-4-4-4H7C4.8,4,3,5.8,3,8v3.8c-0.6,0.5-1,1.3-1,2.2v2.7V17v2c0,0.6,0.4,1,1,1s1-0.4,1-1v-1h16v1   c0,0.6,0.4,1,1,1s1-0.4,1-1v-2v-0.3V14c0-0.9-0.4-1.7-1-2.2V8z M5,8c0-1.1,0.9-2,2-2h10c1.1,0,2,0.9,2,2v3h-1v-1c0-1.7-1.3-3-3-3   h-1c-0.8,0-1.5,0.3-2,0.8C11.5,7.3,10.8,7,10,7H9c-1.7,0-3,1.3-3,3v1H5V8z M16,10v1h-3v-1c0-0.6,0.4-1,1-1h1C15.6,9,16,9.4,16,10z    M11,10v1H8v-1c0-0.6,0.4-1,1-1h1C10.6,9,11,9.4,11,10z M20,16H4v-2c0-0.6,0.4-1,1-1h3h3h2h3h3c0.6,0,1,0.4,1,1V16z" />
                                         </g>
                                     </svg>
                                     <p class="searh-type__title">Отели</p>
@@ -44,40 +34,56 @@
                                     <p class="searh-type__title">Экскурсии</p>
                                 </div>
                             </div>
-                            <div class="search__all">
-                                <input type="checkbox" id="search-all" />
-                                <label for="search-all">Искать везде</label>
+                            <div class="search-all">
+                                <label class="search-all__label">
+                                    <input type="checkbox" />
+                                    Искать везде
+                                </label>
                             </div>
                         </div>
                         <!-- 2 -->
                         <div class="search-input">
                             <client-only>
-                                <VDatePicker v-model="selectedDate" :popover="popover">
-                                    <template #default="{ inputEvents }">
-                                        <input type="text" class="search-input__item" v-on="inputEvents" />
+                                <input type="text" class="search-input__where" placeholder="Куда хотите поехать?">
+                                <VDatePicker is-expanded v-model="popover.dates" :popover="popover" :min-date="new Date()"
+                                    is-range>
+                                    <template #default="{ inputValue, inputEvents }">
+                                        <div class="search-input-date">
+                                            <input type="text" :value="inputValue.start" class="search-input__first-date"
+                                                v-on="inputEvents.start" placeholder="Заезд" />
+                                            <input type="text" :value="inputValue.end" class="search-input__second-date"
+                                                v-on="inputEvents.end" placeholder="Выезд" />
+                                        </div>
                                     </template>
                                 </VDatePicker>
+                                <select class="search-input__people select-placeholder">
+                                    <option class="select-placeholder" selected hidden>Cколько поедет</option>
+                                    <option>123</option>
+                                </select>
+                                <button class="search-input__button">Найти</button>
                             </client-only>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+        <div class="">
+            {{ users.data }}
+        </div>
+</div>
 </template>
 <script>
 export default {
     setup() {
+        
         const popover = ref({
-            visibility: 'click',
-            placement: 'bottom',
             dates: {
-                start: new Date(),
-            },
+                start: '',
+                end: ''
+            }
         });
-        const attributes = ref([{}]);
         return {
-            attributes,
             popover,
         };
     },
@@ -85,10 +91,13 @@ export default {
         return {
             users: '',
             selectedDate: '',
+            firstDate: '',
+            secondDate: '',
         };
     },
     async mounted() {
-        this.users = await $fetch('https://jsonplaceholder.typicode.com/users');
+        this.users = await $fetch('http://localhost:3001/tours')
+        
     },
 };
 </script>
@@ -102,7 +111,7 @@ export default {
     .intro__container {
         width: 100%;
         max-width: 1260px;
-        height: 75vh;
+        height: 700px;
         padding: 80px;
         display: flex;
         flex-direction: column;
@@ -116,9 +125,9 @@ export default {
         .intro-info {
             .intro__text {
                 margin-top: 30px;
-                max-width: 820px;
+                max-width: 770px;
                 font-weight: 300;
-                font-size: 34px;
+                font-size: 49px;
                 font-family: 'Montserrat', sans-serif;
                 text-align: center;
                 line-height: 53px;
@@ -131,10 +140,9 @@ export default {
         .search {
             width: 100%;
             .search__container {
-                padding: 35px 50px;
+                padding: 50px;
                 background: #ffffff;
                 border-radius: 50px;
-
                 .search-header {
                     display: flex;
                     justify-content: space-between;
@@ -176,23 +184,72 @@ export default {
                             }
                         }
                     }
-                    .search__all {
+                    .search-all {
                         display: flex;
                         align-items: center;
                         gap: 5px;
-                        padding: 10px;
-                        border-radius: 10px;
-                        background-color: $border-grey;
-                        cursor: pointer;
+                        &__label {
+                            padding: 10px;
+                            border-radius: 10px;
+                            background-color: $border-grey;
+                            cursor: pointer;
+                            transition: 0.15s;
+                            &:hover {
+                                background-color: $border-grey-hover;
+                            }
+                        }
                     }
                 }
                 .search-input {
-                    .search-input__item {
+                    height: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: 2px solid $main-blue;
+                    background: $main-blue;
+                    border-radius: 10px;
+                    .search-input__where {
                         width: 100%;
-                        padding: 20px;
+                        height: 100%;
+                        padding: 0 16px;
                         box-sizing: border-box;
-                        border: 2px solid $main-blue;
-                        border-radius: 16px;
+                        font-size: 14px;
+                        font-weight: 400;
+                        border: none;
+                        border-radius: 8px 0 0 8px;
+                    }
+                    .search-input-date {
+                        display: flex;
+                        height: 100%;
+                        .search-input__first-date,
+                        .search-input__second-date {
+                            max-width: 120px;
+                            padding: 0 16px;
+                            box-sizing: border-box;
+                            font-size: 14px;
+                            font-weight: 400;
+                            border: none;
+                            border-left: 2px solid $border-grey;
+                        }
+                    }
+                    .search-input__people {
+                        height: 100%;
+                        padding: 0 40px 0 16px;
+                        box-sizing: border-box;
+                        display: flex;
+                        position: relative;
+                        font-size: 14px;
+                        font-weight: 400;
+                        border: none;
+                        border-left: 2px solid $border-grey;
+                        border-radius: 0 8px 8px 0;
+                    }
+                    .search-input__button {
+                        padding: 16px 30px;
+                        font-size: 16px;
+                        font-weight: 300;
+                        color: #ffffff;
+                        cursor: pointer;
                     }
                 }
             }
