@@ -1,13 +1,16 @@
+@use 'variables' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@100;200;300;400;500;600;700;900&display=swap');
-
 // Tags
 html,
 p,
 div,
 body,
 input,
+select,
+button,
 textarea {
     margin: 0;
     padding: 0;
@@ -23,12 +26,6 @@ body,
     height: 100% !important;
     width: 100% !important;
 }
-
-a,
-input {
-    outline: none;
-    text-decoration: none;
-}
 a {
     color: #121212;
 }
@@ -37,6 +34,26 @@ button {
     border: none;
     background: none;
     padding: 0;
+}
+select {
+    border: none;
+    outline: none;
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+    background-position: 100% 53%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+a,
+input {
+    outline: none;
+    text-decoration: none;
+    &::placeholder {
+        color: $main-placeholder;
+    }
 }
 
 // Input
@@ -68,6 +85,10 @@ input[type='number']::-webkit-inner-spin-button {
 
 // Buttons
 
+// Select
+.select-placeholder {
+    color: #bebebe;
+}
 
 // Animation
 
