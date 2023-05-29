@@ -13,13 +13,22 @@
                         <div class="search-header">
                             <div class="search-type">
                                 <div class="search-type-item active">
-                                    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1" xml:space="preserve"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <svg
+                                        width="20px"
+                                        height="20px"
+                                        viewBox="0 0 24 24"
+                                        version="1.1"
+                                        xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
                                         <g id="Layer_Grid" />
 
                                         <g id="Layer_2">
-                                            <path fill="#0446ef"
-                                                d="M21,8c0-2.2-1.8-4-4-4H7C4.8,4,3,5.8,3,8v3.8c-0.6,0.5-1,1.3-1,2.2v2.7V17v2c0,0.6,0.4,1,1,1s1-0.4,1-1v-1h16v1   c0,0.6,0.4,1,1,1s1-0.4,1-1v-2v-0.3V14c0-0.9-0.4-1.7-1-2.2V8z M5,8c0-1.1,0.9-2,2-2h10c1.1,0,2,0.9,2,2v3h-1v-1c0-1.7-1.3-3-3-3   h-1c-0.8,0-1.5,0.3-2,0.8C11.5,7.3,10.8,7,10,7H9c-1.7,0-3,1.3-3,3v1H5V8z M16,10v1h-3v-1c0-0.6,0.4-1,1-1h1C15.6,9,16,9.4,16,10z    M11,10v1H8v-1c0-0.6,0.4-1,1-1h1C10.6,9,11,9.4,11,10z M20,16H4v-2c0-0.6,0.4-1,1-1h3h3h2h3h3c0.6,0,1,0.4,1,1V16z" />
+                                            <path
+                                                fill="#0446ef"
+                                                d="M21,8c0-2.2-1.8-4-4-4H7C4.8,4,3,5.8,3,8v3.8c-0.6,0.5-1,1.3-1,2.2v2.7V17v2c0,0.6,0.4,1,1,1s1-0.4,1-1v-1h16v1   c0,0.6,0.4,1,1,1s1-0.4,1-1v-2v-0.3V14c0-0.9-0.4-1.7-1-2.2V8z M5,8c0-1.1,0.9-2,2-2h10c1.1,0,2,0.9,2,2v3h-1v-1c0-1.7-1.3-3-3-3   h-1c-0.8,0-1.5,0.3-2,0.8C11.5,7.3,10.8,7,10,7H9c-1.7,0-3,1.3-3,3v1H5V8z M16,10v1h-3v-1c0-0.6,0.4-1,1-1h1C15.6,9,16,9.4,16,10z    M11,10v1H8v-1c0-0.6,0.4-1,1-1h1C10.6,9,11,9.4,11,10z M20,16H4v-2c0-0.6,0.4-1,1-1h3h3h2h3h3c0.6,0,1,0.4,1,1V16z"
+                                            />
                                         </g>
                                     </svg>
                                     <p class="searh-type__title">Отели</p>
@@ -44,15 +53,30 @@
                         <!-- 2 -->
                         <div class="search-input">
                             <client-only>
-                                <input type="text" class="search-input__where" placeholder="Куда хотите поехать?">
-                                <VDatePicker is-expanded v-model="popover.dates" :popover="popover" :min-date="new Date()"
-                                    is-range>
+                                <input type="text" class="search-input__where" placeholder="Куда хотите поехать?" />
+                                <VDatePicker
+                                    is-expanded
+                                    v-model="popover.dates"
+                                    :popover="popover"
+                                    :min-date="new Date()"
+                                    is-range
+                                >
                                     <template #default="{ inputValue, inputEvents }">
                                         <div class="search-input-date">
-                                            <input type="text" :value="inputValue.start" class="search-input__first-date"
-                                                v-on="inputEvents.start" placeholder="Заезд" />
-                                            <input type="text" :value="inputValue.end" class="search-input__second-date"
-                                                v-on="inputEvents.end" placeholder="Выезд" />
+                                            <input
+                                                type="text"
+                                                :value="inputValue.start"
+                                                class="search-input__first-date"
+                                                v-on="inputEvents.start"
+                                                placeholder="Заезд"
+                                            />
+                                            <input
+                                                type="text"
+                                                :value="inputValue.end"
+                                                class="search-input__second-date"
+                                                v-on="inputEvents.end"
+                                                placeholder="Выезд"
+                                            />
                                         </div>
                                     </template>
                                 </VDatePicker>
@@ -62,44 +86,32 @@
                                 </select>
                                 <button class="search-input__button">Найти</button>
                             </client-only>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="">
-            {{ users.data }}
+        <div class="popular">
+            <ClientOnly>
+                <div class="popular__container">
+                <div v-for="(tour, index) in tours" class="popular-tours">
+                     {{ tour }}
+                    <br>
+                </div>
+            </div>
+            </ClientOnly>
         </div>
-</div>
+    </div>
 </template>
-<script>
-export default {
-    setup() {
-        
-        const popover = ref({
-            dates: {
-                start: '',
-                end: ''
-            }
-        });
-        return {
-            popover,
-        };
+<script setup>
+// Подгрузка по кешу!!!!!!!!!!!!!!!!!!!!!!!!!!
+const { data: tours } = await useAsyncData('tours', () => $fetch('/api/tours'));
+const popover = ref({
+    dates: {
+        start: '',
+        end: '',
     },
-    data() {
-        return {
-            users: '',
-            selectedDate: '',
-            firstDate: '',
-            secondDate: '',
-        };
-    },
-    async mounted() {
-        this.users = await $fetch('http://localhost:3001/tours')
-        
-    },
-};
+});
 </script>
 <style lang="scss" scoped>
 @import '@/assets/styles/variables.scss';
